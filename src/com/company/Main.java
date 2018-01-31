@@ -1,7 +1,5 @@
 package com.company;
 
-import javax.swing.plaf.synth.SynthTextAreaUI;
-
 import java.util.Scanner;
 
 public class Main {
@@ -13,20 +11,28 @@ public class Main {
         // if number too high tell them its too high
         // if number too low tell them its too low
         // if right tell them got the number right
-        // 5 trys to get number right
+        // 5 tries to get number right
         // when game ends given the option to end game or start new game
         boolean play = true;
         int guesses = 5;
+        int random = (int)Math.ceil(Math.random()*50);
 
         do{
             Scanner input = new Scanner(System.in);
-            int random = (int)Math.ceil(Math.random()*50);
+
+            System.out.println("start");
             try{
+//                do{
+//
+//                }while(play);
+
                 System.out.println("Guess a number: ");
                 int guess = input.nextInt();
 
                 if(guess == random){
                     System.out.println("You guessed right");
+                    random = (int)Math.ceil(Math.random()*50);
+
                     try{
                         System.out.println("Do you wish to continue ('Y', 'N') ");
                         input.nextLine();
@@ -50,7 +56,7 @@ public class Main {
                     }
 
                 }else{
-                    guesses -= 1;
+                    guesses--;
                     System.out.println("Guess left:"+guesses);
                     if(guess > random){
                         System.out.println("Your number was too high");
