@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
 	// write your code here
         //Generate random number 1 to 50
         //ask user to guess number
@@ -13,6 +14,7 @@ public class Main {
         // if right tell them got the number right
         // 5 tries to get number right
         // when game ends given the option to end game or start new game
+
         boolean play = true;
         int guesses = 5;
         int random = (int)Math.ceil(Math.random()*50);
@@ -22,11 +24,8 @@ public class Main {
 
             System.out.println("start");
             try{
-//                do{
-//
-//                }while(play);
 
-                System.out.println("Guess a number: ");
+                System.out.println("Guess a number between 1 and 50 ");
                 int guess = input.nextInt();
 
                 if(guess == random){
@@ -49,10 +48,17 @@ public class Main {
                         System.out.println("Do you wish to continue ('Y', 'N') ");
                         input.nextLine();
                         play = input.nextLine().toUpperCase().equals("Y");
+                        if(play){
+                            System.out.println("Thank you for playing");
+                        }
+
+                        else{
+                            play = false;
+                        }
 
                     }catch (Exception e){
                         System.out.println("invalid response game over");
-                        play = false;
+                        play = true;
                     }
 
                 }else{
@@ -72,9 +78,10 @@ public class Main {
 
         }while(play);
 
-        System.out.println("Thank you");
 
-    }
+
+ }
 
 
 }
+
